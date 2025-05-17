@@ -1,0 +1,2713 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Hazal Doster - Creative AI Engineer</title>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/frame.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/controls.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/custom.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="js/menu.js"></script>
+  <style>
+    :root {
+      --primary-color: #2A1F6C; /* Deep Indigo Violet */
+      --primary-light: #3A2F7C; /* Lighter variation of primary color */
+      --primary-lighter: #4A3F8C; /* Even lighter variation */
+      --accent-color: #FF6B6B; /* Electric Coral */
+      --secondary-accent: #00F5A0; /* Neon Mint */
+      --text-color: #1E1E1E; /* Ash Gray Black */
+      --bg-color: #F4F2F8; /* Pale Lilac Gray */
+      --section-bg: #ffffff;
+    }
+    
+    body {
+      font-family: 'Source Sans Pro', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+      margin: 0;
+      position: relative;
+    }
+
+    .content-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-section {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: linear-gradient(135deg, var(--primary-color), #1A0F4C);
+      color: white;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      text-align: center;
+      z-index: 2;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      position: relative;
+    }
+
+    .hero-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background-color: var(--secondary-accent);
+      animation: neonPulse 4s infinite;
+    }
+
+    .hero-subtitle {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      font-weight: 300;
+      color: var(--accent-color);
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+                   0 0 20px rgba(255, 255, 255, 0.4),
+                   0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-description {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+
+    .scroll-down {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--secondary-accent);
+      font-size: 2rem;
+      animation: bounce 2s infinite, glow 1.5s infinite alternate;
+      cursor: pointer;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+      }
+      40% {
+        transform: translateY(-20px) translateX(-50%);
+      }
+      60% {
+        transform: translateY(-10px) translateX(-50%);
+      }
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px var(--secondary-accent), 0 0 10px var(--secondary-accent);
+      }
+      to {
+        text-shadow: 0 0 15px var(--secondary-accent), 0 0 20px var(--secondary-accent);
+      }
+    }
+
+    .section {
+      padding: 80px 0;
+      position: relative;
+      /* Enhanced gradient with more visible color transition */
+      background: linear-gradient(135deg, var(--section-bg) 0%, rgba(42, 31, 108, 0.08) 50%, rgba(42, 31, 108, 0.12) 100%);
+      margin: 40px 0;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      /* overflow: hidden; - Removed to prevent internal scroll bars */
+      /* Add subtle neon ring/border in light mode */
+      border: 2px solid transparent;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05), 0 0 15px rgba(0, 245, 160, 0.2);
+      transition: all 0.4s ease;
+    }
+    
+    /* Add more gradient variety for even-odd sections */
+    .section:nth-child(even) {
+      background: linear-gradient(135deg, rgba(42, 31, 108, 0.08) 0%, var(--section-bg) 50%, rgba(42, 31, 108, 0.05) 100%);
+    }
+    
+    /* Restore the circular shape element */
+    .section::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      left: -50px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: rgba(255, 107, 107, 0.1); /* Electric Coral with opacity */
+      z-index: 0;
+    }
+    
+    /* Restore hover effect to enhance the neon ring */
+    .section:hover {
+      box-shadow: 0 5px 25px rgba(0,0,0,0.1), 0 0 25px rgba(0, 245, 160, 0.3);
+      border-color: rgba(0, 245, 160, 0.2);
+    }
+    
+    /* Make dark mode sections have different gradient */
+    .dark-mode .section {
+      background: linear-gradient(135deg, var(--section-bg) 0%, rgba(0, 245, 160, 0.08) 50%, rgba(0, 245, 160, 0.15) 100%);
+      border: 1px solid rgba(0, 245, 160, 0.1);
+      box-shadow: 0 0 20px rgba(0, 245, 160, 0.1);
+    }
+    
+    /* Alternate gradient for even sections in dark mode */
+    .dark-mode .section:nth-child(even) {
+      background: linear-gradient(135deg, rgba(0, 245, 160, 0.15) 0%, var(--section-bg) 50%, rgba(0, 245, 160, 0.08) 100%);
+    }
+    
+    .section-title {
+      color: var(--primary-color) !important;
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+      border-bottom: none !important;
+    }
+
+    .section-title::after {
+      content: "" !important;
+      position: absolute !important;
+      bottom: -10px !important;
+      left: 0 !important;
+      width: 60px !important;
+      height: 3px !important;
+      background-color: var(--accent-color) !important;
+    }
+
+    .section-icon {
+      font-size: 1.2em;
+      margin-left: 10px;
+      color: var(--accent-color);
+      transition: transform 0.3s ease, color 0.3s ease;
+      animation: iconBounce 2s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    .content-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 8px;
+      padding: 25px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      flex: 1 1 300px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .card-title {
+      color: var(--primary-color);
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background-color: var(--accent-color);
+    }
+
+    .experience-item {
+      margin-bottom: 30px;
+      position: relative;
+      padding-left: 30px;
+    }
+
+    .experience-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: var(--accent-color);
+      z-index: 1;
+    }
+
+    .experience-item::after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 18px;
+      width: 2px;
+      height: calc(100% - 6px);
+      background-color: var(--accent-color);
+      opacity: 0.5;
+    }
+
+    .experience-item:last-child::after {
+      display: none;
+    }
+
+    .experience-title {
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 5px;
+      font-size: 1.2rem;
+    }
+
+    .experience-company {
+      font-weight: 600;
+      color: var(--accent-color);
+      margin-bottom: 10px;
+    }
+
+    .experience-date {
+      font-style: italic;
+      margin-bottom: 10px;
+      color: #777;
+    }
+
+    .skill-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .skill-tag {
+      background-color: rgba(42, 31, 108, 0.1); /* Deep Indigo Violet with opacity */
+      color: var(--primary-color);
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .skill-tag:hover {
+      background-color: var(--primary-color);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    .project-card {
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      flex: 1 1 calc(50% - 30px);
+      position: relative;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .project-image {
+      height: 200px;
+      width: 100%;
+      background-color: #e1e5f1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--primary-color);
+      font-size: 3rem;
+    }
+
+    .project-content {
+      padding: 20px;
+    }
+
+    .project-title {
+      color: var(--primary-color);
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .project-description {
+      margin-bottom: 15px;
+      color: #666;
+    }
+
+    .custom-button-flat {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .custom-button-flat:hover {
+      background-color: var(--accent-color);
+      transform: translateY(-2px);
+    }
+
+    .small {
+      padding: 6px 12px;
+      font-size: 0.9rem;
+    }
+
+    .contact-form {
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .circular-shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.1;
+      z-index: 0;
+    }
+
+    .shape1 {
+      top: -100px;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+      background-color: var(--accent-color);
+    }
+
+    .shape2 {
+      bottom: -50px;
+      left: -50px;
+      width: 200px;
+      height: 200px;
+      background-color: var(--primary-color);
+    }
+
+    .particles-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+      justify-content: center; /* Ensure the links are centered in their container */
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--primary-color);
+      color: white;
+      transition: all 0.3s ease;
+      /* Add neon ring effect */
+      box-shadow: 0 0 5px rgba(0, 245, 160, 0.3),
+                  0 0 10px rgba(0, 245, 160, 0.1);
+      border: 1px solid rgba(0, 245, 160, 0.2);
+      position: relative; /* For centering the icon */
+    }
+
+    .social-links a:hover {
+      background-color: var(--accent-color);
+      transform: translateY(-3px);
+      /* Enhance the neon effect on hover */
+      box-shadow: 0 0 10px rgba(0, 245, 160, 0.5),
+                  0 0 20px rgba(0, 245, 160, 0.3);
+    }
+    
+    .social-links a i {
+      /* Perfect centering of icons */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1rem; /* Control icon size */
+    }
+    
+    /* Enhanced neon effect for dark mode */
+    .dark-mode .social-links a {
+      box-shadow: 0 0 8px rgba(0, 245, 160, 0.5),
+                  0 0 15px rgba(0, 245, 160, 0.3);
+      border: 1px solid rgba(0, 245, 160, 0.4);
+    }
+    
+    .dark-mode .social-links a:hover {
+      box-shadow: 0 0 15px rgba(0, 245, 160, 0.7),
+                  0 0 25px rgba(0, 245, 160, 0.5);
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      .hero-subtitle {
+        font-size: 1.3rem;
+      }
+      .section {
+        padding: 50px 0;
+      }
+      .project-card {
+        flex: 1 1 100%;
+      }
+    }
+
+    /* Animation for content appearance */
+    [data-aos="fade-up"] {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    [data-aos="fade-up"].aos-animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    [data-aos="fade-right"] {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    [data-aos="fade-right"].aos-animate {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    [data-aos="fade-left"] {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    [data-aos="fade-left"].aos-animate {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Navigation styles */
+    .nav-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: all 0.4s ease;
+    }
+    
+    /* Add styles for hiding navigation when scrolling down */
+    .nav-container.hidden {
+      transform: translateY(-100%);
+    }
+
+    .nav-container.scrolled {
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    /* Dark mode styles for nav */
+    .dark-mode .nav-container.scrolled {
+      background-color: var(--bg-color);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-container.scrolled .logo {
+      color: var(--primary-color);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .nav-container.scrolled .nav-link {
+      color: var(--text-color);
+    }
+
+    .nav-link:hover {
+      color: var(--accent-color);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .nav-container.scrolled .mobile-menu-btn {
+      color: var(--primary-color);
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: block;
+      }
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100vh;
+        background-color: white;
+        flex-direction: column;
+        padding: 80px 20px 20px;
+        transition: right 0.3s ease;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+      }
+      .nav-links.active {
+        right: 0;
+      }
+      .nav-link {
+        color: var(--text-color);
+      }
+    }
+
+    /* Adding neon mint animations */
+    @keyframes neonPulse {
+      0% {
+        box-shadow: 0 0 5px var(--secondary-accent);
+      }
+      50% {
+        box-shadow: 0 0 20px var(--secondary-accent);
+      }
+      100% {
+        box-shadow: 0 0 5px var(--secondary-accent);
+      }
+    }
+    
+    /* Project card hover effect with neon mint */
+    .project-card:hover .project-image {
+      box-shadow: inset 0 0 20px var(--secondary-accent);
+      transition: box-shadow 0.3s ease;
+    }
+    
+    /* Typing effect for hero description */
+    .typing-effect {
+      border-right: 3px solid var(--secondary-accent);
+      white-space: nowrap;
+      overflow: hidden;
+      margin: 0 auto;
+      animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+    }
+    
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: var(--secondary-accent) }
+    }
+
+    /* Add this to enhance AI creativity feel */
+    .ai-highlight {
+      position: relative;
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+    
+    .ai-highlight::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 30%;
+      background-color: rgba(0, 245, 160, 0.2);
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+    }
+    
+    /* Creative cursor animation for text sections */
+    .creative-section {
+      position: relative;
+    }
+    
+    .creative-section::after {
+      content: '|';
+      position: absolute;
+      right: -15px;
+      bottom: 0;
+      color: var(--secondary-accent);
+      font-weight: bold;
+      animation: cursor-blink 1.2s infinite;
+      opacity: 0;
+    }
+    
+    @keyframes cursor-blink {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+    
+    /* Interactive hover effects for cards */
+    .card {
+      transition: all 0.4s ease;
+      background: linear-gradient(145deg, #ffffff, var(--bg-color));
+    }
+    
+    .card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 10px 25px rgba(42, 31, 108, 0.15), 0 0 15px rgba(0, 245, 160, 0.3);
+      background: linear-gradient(145deg, #ffffff, #F8F6FF);
+    }
+    
+    /* Enhance the project cards */
+    .project-card .project-image {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .project-card .project-image::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(
+        transparent, 
+        transparent, 
+        transparent, 
+        var(--secondary-accent)
+      );
+      animation: rotate 4s linear infinite;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    
+    .project-card:hover .project-image::before {
+      opacity: 0.15;
+    }
+    
+    @keyframes rotate {
+      100% {
+        transform: rotate(1turn);
+      }
+    }
+    
+    /* Add a subtle background animation */
+    .bg-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      pointer-events: none;
+      z-index: -1;
+    }
+    
+    .bg-animation span {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background-color: var(--secondary-accent);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--secondary-accent), 0 0 20px var(--secondary-accent);
+      animation: sparkle var(--duration) linear infinite;
+      opacity: 0;
+    }
+    
+    @keyframes sparkle {
+      0% {
+        opacity: 0;
+        transform: scale(0);
+      }
+      50% {
+        opacity: var(--opacity);
+        transform: scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(0);
+      }
+    }
+
+    /* Add AI-themed decorative elements */
+    .expertise-icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      color: var(--primary-color);
+      transition: all 0.5s ease;
+    }
+    
+    .card:hover .expertise-icon {
+      color: var(--secondary-accent);
+      transform: translateY(-5px);
+    }
+    
+    /* Add circuit pattern to sections */
+    .circuit-pattern {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background-image: radial-gradient(var(--secondary-accent) 1px, transparent 1px),
+                        radial-gradient(var(--accent-color) 1px, transparent 1px);
+      background-size: 20px 20px;
+      background-position: 0 0, 10px 10px;
+      opacity: 0.05;
+      z-index: 0;
+    }
+    
+    .pattern-top-right {
+      top: 20px;
+      right: 20px;
+    }
+    
+    .pattern-bottom-left {
+      bottom: 20px;
+      left: 20px;
+    }
+    
+    /* Project card enhancements */
+    .project-tag {
+      display: inline-block;
+      background-color: rgba(42, 31, 108, 0.07);
+      color: var(--primary-color);
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      margin-right: 5px;
+      margin-bottom: 5px;
+    }
+    
+    .project-tags {
+      margin-bottom: 15px;
+    }
+
+    /* Dark mode styles */
+    .dark-mode {
+      --primary-color: #3A2F8C; /* Slightly lighter for dark mode */
+      --primary-light: #4A3F9C; /* Lighter variation of primary color */
+      --primary-lighter: #5A4FAF; /* Even lighter variation */
+      --accent-color: #FF6B6B; /* Same Electric Coral */
+      --secondary-accent: #00F5A0; /* Same Neon Mint */
+      --text-color: #F4F2F8; /* Light text for dark mode - Pale Lilac Gray */
+      --bg-color: #1A1525; /* Dark background */
+      --section-bg: #241D35; /* Dark section bg */
+    }
+    
+    /* Ensure all text elements in dark mode use the pale lilac gray color */
+    .dark-mode p,
+    .dark-mode li,
+    .dark-mode .card-title,
+    .dark-mode .project-title,
+    .dark-mode .project-description,
+    .dark-mode .experience-title,
+    .dark-mode .experience-date {
+      color: var(--text-color);
+    }
+    
+    /* Make sure skill tags are readable in dark mode */
+    .dark-mode .skill-tag {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--text-color);
+    }
+    
+    /* Ensure project tags are readable */
+    .dark-mode .project-tag {
+      color: var(--text-color);
+    }
+    
+    .dark-mode .section {
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      border: 1px solid rgba(0, 245, 160, 0.1);
+      box-shadow: 0 0 20px rgba(0, 245, 160, 0.1);
+    }
+    
+    .dark-mode .card {
+      background: linear-gradient(145deg, #241D35, #2A2440);
+      color: var(--text-color);
+    }
+    
+    .dark-mode .section-title {
+      color: var(--secondary-accent) !important;
+      text-shadow: none;
+    }
+    
+    .dark-mode .section-title::after {
+      background-color: var(--secondary-accent) !important;
+      box-shadow: none;
+    }
+    
+    /* Theme toggle button */
+    .theme-toggle {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: var(--primary-color);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 100;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .theme-toggle:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      background-color: var(--accent-color);
+    }
+    
+    .theme-toggle i {
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    /* Light mode hover effect without glow */
+    .section-title:hover {
+      color: var(--accent-color) !important;
+      text-shadow: none;
+    }
+
+    /* Add neon effect to section icons */
+    .dark-mode .section-icon {
+      color: var(--secondary-accent);
+      text-shadow: none;
+      animation: iconBounce 2s ease-in-out infinite;
+    }
+    
+    @keyframes iconBounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+    
+    /* Make icon react on hover in light mode - apply rotation */
+    .section-title:hover .section-icon {
+      animation: none;
+      transform: rotate(15deg) scale(1.2);
+      color: var(--secondary-accent);
+    }
+    
+    /* Make icon react on hover in dark mode - apply rotation */
+    .dark-mode .section-title:hover .section-icon {
+      animation: none;
+      transform: rotate(15deg) scale(1.2);
+      color: var(--secondary-accent);
+    }
+
+    /* No hover effect for titles */
+    .section-title:hover {
+      color: var(--primary-color) !important;
+      text-shadow: none;
+    }
+    
+    /* Keep dark mode with correct colors but no hover changes */
+    .dark-mode .section-title:hover {
+      color: var(--secondary-accent) !important;
+    }
+
+    /* Enhance section cards in dark mode */
+    .dark-mode .section:hover {
+      box-shadow: 0 0 25px rgba(0, 245, 160, 0.2);
+      border: 1px solid rgba(0, 245, 160, 0.2);
+      transition: all 0.5s ease;
+    }
+    
+    /* Make section headers stand out more with neon */
+    .dark-mode .section h3 {
+      color: var(--secondary-accent);
+      text-shadow: 0 0 3px var(--secondary-accent);
+    }
+    
+    /* Add subtle pulse to card headings */
+    .dark-mode .card-title {
+      color: var(--accent-color);
+      position: relative;
+      display: inline-block;
+    }
+    
+    .dark-mode .card-title::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 5px;
+      background-color: rgba(0, 245, 160, 0.1);
+      top: 0;
+      left: 0;
+      z-index: -1;
+      animation: cardTitlePulse 2s infinite;
+    }
+    
+    @keyframes cardTitlePulse {
+      0%, 100% {
+        opacity: 0.1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.3;
+        transform: scale(1.05);
+      }
+    }
+
+    /* Removing neon pulse animation as it's no longer used */
+    @keyframes neonTitlePulse {
+      from {
+        text-shadow: none;
+      }
+      to {
+        text-shadow: none;
+      }
+    }
+
+    /* Ensure dark mode maintains the visibility */
+    .dark-mode .hero-subtitle {
+      color: var(--accent-color); /* Keep Electric Coral in dark mode too */
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+                   0 0 20px rgba(255, 255, 255, 0.4),
+                   0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Manifest Section Styles */
+    .manifest-section {
+      position: relative;
+      z-index: 2;
+      padding: 100px 0;
+      width: 100%;
+      max-width: 100%;
+      background: linear-gradient(135deg, #f8f6ff 0%, rgba(42, 31, 108, 0.05) 50%, #f4f2f8 100%);
+      border-top: 1px solid rgba(42, 31, 108, 0.1);
+      border-bottom: 1px solid rgba(42, 31, 108, 0.1);
+    }
+    
+    .manifest-section .content {
+      max-width: 100%;
+      width: 100%;
+      padding: 0 20px;
+    }
+    
+    .dark-mode .manifest-section {
+      background: linear-gradient(135deg, rgba(26, 21, 37, 0.8) 0%, rgba(0, 245, 160, 0.05) 50%, rgba(26, 21, 37, 0.9) 100%);
+      border-top: 1px solid rgba(0, 245, 160, 0.1);
+      border-bottom: 1px solid rgba(0, 245, 160, 0.1);
+    }
+    
+    .manifest-icon {
+      animation: floatIcon 3s ease-in-out infinite !important;
+    }
+    
+    @keyframes floatIcon {
+      0%, 100% {
+        transform: translateY(0) rotate(0);
+      }
+      50% {
+        transform: translateY(-8px) rotate(10deg);
+      }
+    }
+    
+    .manifest-content {
+      position: relative;
+      z-index: 5;
+      max-width: 100%; /* Changed from 900px/1000px to use full width */
+      width: 100%;
+      margin: 0 auto;
+      padding: 20px;
+      overflow: hidden;
+    }
+    
+    .manifest-tagline {
+      font-weight: 700;
+      color: var(--primary-color);
+      margin: 0 auto;
+      line-height: 1.2;
+      text-align: center;
+      letter-spacing: -0.02em;
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      white-space: normal;
+      overflow: visible;
+      width: 100%;
+      max-width: 100%;
+      padding: 4rem;
+      background: 
+        radial-gradient(circle at top right, rgba(74, 63, 140, 0.8) 0%, rgba(42, 31, 108, 0) 50%),
+        radial-gradient(circle at bottom left, rgba(26, 15, 76, 0.8) 0%, rgba(42, 31, 108, 0) 50%),
+        linear-gradient(135deg, #2A1F6C 0%, #3a2f7c 30%, #4a3f8c 50%, #3a2f7c 70%, #1A0F4C 100%);
+      color: white;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      perspective: 1000px;
+      animation: tagline-entrance 1s ease-out forwards;
+      word-wrap: break-word;
+      word-break: normal;
+      hyphens: none;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Add subtle texture overlay */
+    .manifest-tagline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+      opacity: 0.5;
+      z-index: 1;
+      pointer-events: none;
+    }
+    
+    /* Make sure content stays above the overlay */
+    .manifest-tagline > * {
+      position: relative;
+      z-index: 2;
+    }
+    
+    /* Dark mode version of the gradient */
+    .dark-mode .manifest-tagline {
+      background: 
+        radial-gradient(circle at top right, rgba(255, 107, 107, 0.8) 0%, rgba(58, 47, 140, 0) 50%),
+        radial-gradient(circle at bottom left, rgba(42, 31, 108, 0.8) 0%, rgba(58, 47, 140, 0) 50%),
+        linear-gradient(135deg, #3A2F8C 0%, #4a3f9c 30%, #5a4faf 50%, #4a3f9c 70%, #2A1F6C 100%);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 107, 107, 0.1);
+    }
+    
+    /* Dark mode texture overlay */
+    .dark-mode .manifest-tagline::before {
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%230af5a0' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+      opacity: 0.3;
+    }
+    
+    @keyframes tagline-entrance {
+      0% {
+        transform: translateY(30px) scale(0.9);
+        opacity: 0;
+      }
+      70% {
+        transform: translateY(-5px) scale(1.02);
+      }
+      100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+    }
+    
+    .dark-mode .manifest-tagline {
+      background: linear-gradient(135deg, #3A2F8C 0%, #5a4faf 50%, #2A1F6C 100%);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 107, 107, 0.1);
+    }
+    
+    .manifest-content {
+      position: relative;
+      z-index: 5;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      overflow: hidden;
+    }
+    
+    .typing-manifest {
+      position: relative;
+      text-shadow: 0 0 10px rgba(42, 31, 108, 0.4);
+      width: 100%;
+      display: inline-block;
+      margin: 0 auto;
+    }
+    
+    .typing-manifest::after {
+      content: '';
+      position: absolute;
+      right: -4px;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 70%;
+      width: 3px;
+      background-color: var(--accent-color);
+      animation: cursor-blink 1s infinite ease;
+    }
+    
+    .dark-mode .typing-manifest {
+      text-shadow: 0 0 15px rgba(0, 245, 160, 0.6);
+    }
+    
+    .dark-mode .typing-manifest::after {
+      background-color: var(--secondary-accent);
+    }
+    
+    .glow-text {
+      color: var(--accent-color);
+      text-shadow: 0 0 15px var(--accent-color),
+                  0 0 25px var(--accent-color),
+                  0 0 35px var(--accent-color);
+      font-weight: bold;
+      animation: glow-pulse 2s infinite alternate;
+    }
+    
+    .dark-mode .glow-text {
+      color: var(--accent-color);
+      text-shadow: none;
+    }
+    
+    @keyframes glow-pulse {
+      from {
+        text-shadow: 0 0 10px var(--accent-color),
+                    0 0 20px var(--accent-color);
+      }
+      to {
+        text-shadow: 0 0 15px var(--accent-color),
+                    0 0 25px var(--accent-color),
+                    0 0 35px var(--accent-color);
+      }
+    }
+    
+    /* Dark mode glow pulse uses the same animation but different color through the class selector */
+    
+    .typing-complete {
+      animation: tagline-complete 1s forwards;
+    }
+    
+    @keyframes tagline-complete {
+      0% {
+        text-shadow: 0 0 5px rgba(42, 31, 108, 0.4);
+      }
+      100% {
+        text-shadow: 0 0 15px rgba(42, 31, 108, 0.6),
+                    0 0 30px rgba(42, 31, 108, 0.3);
+      }
+    }
+    
+    .tagline-shimmer {
+      position: absolute;
+      top: 0;
+      left: -150%;
+      width: 150%;
+      height: 100%;
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      pointer-events: none;
+      animation: shimmer 2.5s infinite;
+      transform: skewX(-20deg);
+      z-index: 5;
+      border-radius: inherit;
+    }
+    
+    .dark-mode .tagline-shimmer {
+      background: linear-gradient(
+        to right,
+        rgba(0, 245, 160, 0) 0%,
+        rgba(0, 245, 160, 0.25) 50%,
+        rgba(0, 245, 160, 0) 100%
+      );
+      animation: shimmer 2s infinite;
+    }
+    
+    @keyframes shimmer {
+      0% {
+        left: -150%;
+      }
+      100% {
+        left: 150%;
+      }
+    }
+    
+    .manifest-paragraph {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      position: relative;
+      transition: all 0.5s ease;
+      animation: paragraph-fade 1s forwards;
+      animation-delay: calc(var(--delay) * 100ms);
+      opacity: 0;
+      transform: translateX(-20px);
+      padding: 18px;
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.75);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      border-left: 3px solid var(--accent-color);
+    }
+    
+    .dark-mode .manifest-paragraph {
+      background-color: rgba(36, 29, 53, 0.6);
+    }
+    
+    @keyframes paragraph-fade {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    .manifest-paragraph:nth-of-type(1) { --delay: 6; }
+    .manifest-paragraph:nth-of-type(2) { --delay: 10; }
+    .manifest-paragraph:nth-of-type(3) { --delay: 14; }
+    .manifest-paragraph:nth-of-type(4) { --delay: 18; }
+    
+    .manifest-paragraph strong {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+    
+    .dark-mode .manifest-paragraph strong {
+      color: var(--accent-color);
+    }
+    
+    /* Highlight first letter of each paragraph */
+    .manifest-paragraph::first-letter {
+      font-size: 1.5em;
+      font-weight: 700;
+      color: var(--accent-color);
+    }
+    
+    /* Add animated underline effect on hover */
+    .manifest-paragraph:hover::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+      animation: underlineFlow 2s infinite;
+    }
+    
+    @keyframes underlineFlow {
+      0% {
+        background-position: -300px 0;
+      }
+      100% {
+        background-position: 300px 0;
+      }
+    }
+    
+    .manifest-signature {
+      margin: 3rem 0;
+      padding: 2rem;
+      border-left: 3px solid var(--accent-color);
+      background-color: rgba(42, 31, 108, 0.03);
+      border-radius: 0 8px 8px 0;
+      position: relative;
+      animation: signature-entrance 1s ease-out forwards;
+      animation-delay: 2.2s;
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    
+    @keyframes signature-entrance {
+      0% {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    
+    .dark-mode .manifest-signature {
+      border-left: 3px solid var(--accent-color);
+      background-color: rgba(0, 245, 160, 0.05);
+    }
+    
+    .manifest-name {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--primary-color);
+    }
+    
+    .dark-mode .manifest-name {
+      color: var(--accent-color);
+    }
+    
+    .manifest-beliefs {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .manifest-beliefs li {
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+      position: relative;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    
+    .manifest-beliefs li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent-color);
+    }
+    
+    .manifest-conclusion {
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: 600;
+      font-style: italic;
+      margin-top: 3rem;
+      color: var(--primary-color);
+      line-height: 1.8;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      animation: conclusion-pulse 3s infinite alternate;
+      opacity: 0;
+      animation-delay: 2.5s;
+      animation-fill-mode: forwards;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .manifest-conclusion::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(
+        transparent, 
+        transparent, 
+        transparent, 
+        var(--accent-color)
+      );
+      animation: rotate 8s linear infinite;
+      opacity: 0.1;
+    }
+    
+    .dark-mode .manifest-conclusion::before {
+      background: conic-gradient(
+        transparent, 
+        transparent, 
+        transparent, 
+        var(--accent-color)
+      );
+    }
+    
+    @keyframes conclusion-pulse {
+      0% {
+        opacity: 1;
+        transform: scale(1);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1.02);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 245, 160, 0.1);
+      }
+    }
+    
+    .dark-mode .manifest-conclusion {
+      color: var(--accent-color);
+      background: linear-gradient(135deg, rgba(36, 29, 53, 0.8), rgba(36, 29, 53, 0.2));
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 245, 160, 0.1);
+    }
+    
+    /* Floating particles in manifest section */
+    .manifest-particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1; /* Place above background but below content */
+    }
+    
+    /* Make manifest section content appear above particles */
+    .manifest-section .content {
+      position: relative;
+      z-index: 3;
+    }
+    
+    /* Add a slight glow effect to the particles canvas */
+    #manifest-particles canvas {
+      filter: drop-shadow(0 0 5px rgba(0, 245, 160, 0.4));
+    }
+    
+
+    
+    /* Add floating shapes */
+    .manifest-section::before {
+      content: '';
+      position: absolute;
+      right: 10%;
+      top: 20%;
+      width: 15px;
+      height: 15px;
+      background-color: var(--accent-color);
+      opacity: 0.5;
+      border-radius: 50%;
+      animation: floatShape 8s infinite linear;
+    }
+    
+    .manifest-section::after {
+      content: '';
+      position: absolute;
+      left: 15%;
+      bottom: 25%;
+      width: 20px;
+      height: 20px;
+      background-color: var(--accent-color);
+      opacity: 0.5;
+      border-radius: 4px;
+      transform: rotate(45deg);
+      animation: floatShape 12s infinite reverse linear;
+    }
+    
+    @keyframes floatShape {
+      0% {
+        transform: translateY(0) rotate(0);
+      }
+      25% {
+        transform: translateY(-20px) rotate(90deg);
+      }
+      50% {
+        transform: translateY(0) rotate(180deg);
+      }
+      75% {
+        transform: translateY(20px) rotate(270deg);
+      }
+      100% {
+        transform: translateY(0) rotate(360deg);
+      }
+    }
+    
+    /* Add highlight effect */
+    .ai-word {
+      position: relative;
+      color: var(--primary-color);
+      font-weight: 700;
+    }
+    
+    .ai-word::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 30%;
+      background-color: rgba(0, 245, 160, 0.2);
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      border-radius: 2px;
+    }
+    
+    .dark-mode .ai-word {
+      color: var(--accent-color);
+    }
+    
+    .dark-mode .ai-word::after {
+      background-color: rgba(255, 107, 107, 0.2);
+    }
+    
+    /* Responsive styles for manifest section */
+    @media (max-width: 768px) {
+      .manifest-tagline {
+        font-size: 3.5rem;
+        min-height: 80vh;
+        padding: 2rem;
+      }
+      
+      .manifest-paragraph {
+        font-size: 1rem;
+      }
+      
+      .manifest-name {
+        font-size: 1.5rem;
+      }
+      
+      .manifest-conclusion {
+        font-size: 1.1rem;
+      }
+    }
+    
+    @media (min-width: 769px) and (max-width: 1200px) {
+      .manifest-tagline {
+        font-size: 5rem;
+      }
+    }
+    
+    /* Style the individual phrases in the tagline with different font sizes */
+    .tagline-phrase {
+      display: block;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      margin: 3rem 0; /* Increased line spacing between phrases */
+    }
+    
+    /* Different font sizes for each phrase */
+    .tagline-phrase:nth-child(1) {
+      font-size: 7rem; /* Largest font size for first phrase */
+    }
+    
+    .tagline-phrase:nth-child(2) {
+      font-size: 3rem; /* Medium font size for second phrase */
+    }
+    
+    .tagline-phrase:nth-child(3) {
+      font-size: 5rem; /* Smallest font size for third phrase */
+    }
+    
+    /* Media queries for different screen sizes */
+    @media (max-width: 1200px) {
+      .tagline-phrase:nth-child(1) { font-size: 6rem; }
+      .tagline-phrase:nth-child(2) { font-size: 5rem; }
+      .tagline-phrase:nth-child(3) { font-size: 4rem; }
+    }
+    
+    @media (max-width: 768px) {
+      .tagline-phrase:nth-child(1) { font-size: 4.5rem; }
+      .tagline-phrase:nth-child(2) { font-size: 3.8rem; }
+      .tagline-phrase:nth-child(3) { font-size: 3.2rem; }
+      .tagline-phrase { margin: 2rem 0; }
+    }
+    
+    @media (max-width: 480px) {
+      .tagline-phrase:nth-child(1) { font-size: 3rem; }
+      .tagline-phrase:nth-child(2) { font-size: 2.5rem; }
+      .tagline-phrase:nth-child(3) { font-size: 2.2rem; }
+      .tagline-phrase { margin: 1.5rem 0; }
+    }
+
+    /* Highlight styles for important text */
+    .highlight-primary {
+      color: var(--accent-color);
+      font-weight: 600;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .highlight-secondary {
+      color: var(--secondary-accent);
+      font-weight: 600;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .highlight-tertiary {
+      color: var(--primary-color);
+      font-weight: 600;
+      position: relative;
+      display: inline-block;
+    }
+    
+    /* Add subtle underline effect to highlighted text */
+    .highlight-primary::after,
+    .highlight-secondary::after,
+    .highlight-tertiary::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      opacity: 0.4;
+      transform: scaleX(0.8);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    
+    .highlight-primary::after {
+      background-color: var(--accent-color);
+    }
+    
+    .highlight-secondary::after {
+      background-color: var(--secondary-accent);
+    }
+    
+    .highlight-tertiary::after {
+      background-color: var(--primary-color);
+    }
+    
+    /* Hover effect for highlighted text */
+    .highlight-primary:hover::after,
+    .highlight-secondary:hover::after,
+    .highlight-tertiary:hover::after {
+      transform: scaleX(1);
+      opacity: 0.7;
+    }
+    
+    /* Dark mode adjustments */
+    .dark-mode .highlight-tertiary {
+      color: var(--accent-color);
+    }
+    
+    .dark-mode .highlight-tertiary::after {
+      background-color: var(--accent-color);
+    }
+    
+    /* Fix project cards in dark mode */
+    .dark-mode .project-card {
+      background-color: var(--section-bg);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      border: 1px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .dark-mode .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 2px solid var(--secondary-accent);
+      border-radius: 8px;
+      box-shadow: 0 0 10px var(--secondary-accent), 
+                  inset 0 0 6px var(--secondary-accent);
+      opacity: 0.5;
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+    
+    .dark-mode .project-card:hover::before {
+      opacity: 0.8;
+      box-shadow: 0 0 15px var(--secondary-accent), 
+                  inset 0 0 10px var(--secondary-accent);
+    }
+    
+    /* For specific coral-highlighted projects, change the border color */
+    .dark-mode .project-card:has(.project-title[data-project="ArtifactGAN"])::before,
+    .dark-mode .project-card:has(.project-title[data-project="Spiral"])::before,
+    .dark-mode .project-card:has(.project-title[data-project="PerdeApp"])::before,
+    .dark-mode .project-card:has(.project-title[data-project="AICrafts"])::before {
+      border-color: var(--accent-color);
+      box-shadow: 0 0 10px var(--accent-color), 
+                  inset 0 0 6px var(--accent-color);
+    }
+    
+    .dark-mode .project-card:has(.project-title[data-project="ArtifactGAN"]):hover::before,
+    .dark-mode .project-card:has(.project-title[data-project="Spiral"]):hover::before,
+    .dark-mode .project-card:has(.project-title[data-project="PerdeApp"]):hover::before,
+    .dark-mode .project-card:has(.project-title[data-project="AICrafts"]):hover::before {
+      box-shadow: 0 0 15px var(--accent-color), 
+                  inset 0 0 10px var(--accent-color);
+    }
+    
+    /* Project styling for dark mode */
+    .dark-mode .project-image {
+      background-color: rgba(26, 15, 76, 0.6);
+      color: var(--accent-color);
+    }
+    
+    .dark-mode .project-content {
+      background-color: var(--section-bg);
+    }
+    
+    .dark-mode .project-description {
+      color: var(--text-color);
+    }
+    
+    /* Change specific project titles to coral */
+    .project-card .project-title[data-project="ArtifactGAN"],
+    .project-card .project-title[data-project="Spiral"],
+    .project-card .project-title[data-project="PerdeApp"],
+    .project-card .project-title[data-project="AICrafts"] {
+      color: var(--accent-color) !important;
+    }
+    
+    /* Ensure they stay coral in dark mode too */
+    .dark-mode .project-card .project-title[data-project="ArtifactGAN"],
+    .dark-mode .project-card .project-title[data-project="Spiral"],
+    .dark-mode .project-card .project-title[data-project="PerdeApp"],
+    .dark-mode .project-card .project-title[data-project="AICrafts"] {
+      color: var(--accent-color) !important;
+    }
+    
+    /* Add hover effect for project cards */
+    .dark-mode .project-card:hover {
+      transform: translateY(-5px);
+      transition: transform 0.3s ease;
+    }
+  </style>
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-103598896-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+<body>
+  <!-- Background animation -->
+  <div class="bg-animation" id="bg-animation"></div>
+  
+  <!-- Theme toggle -->
+  <div class="theme-toggle" id="theme-toggle">
+    <i class="fas fa-moon"></i>
+  </div>
+  
+  <!-- Navigation -->
+  <div class="nav-container">
+    <div class="nav-content">
+      <a href="#manifest" class="logo">manifest</a>
+      <button class="mobile-menu-btn" id="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="home">
+    <div class="particles-container" id="particles-js"></div>
+    <div class="hero-content">
+      <h1 class="hero-title" data-aos="fade-up">Hazal Doster</h1>
+      <h2 class="hero-subtitle" data-aos="fade-up" data-aos-delay="100">Creative AI Engineer</h2>
+      <p class="hero-description typing-effect" data-aos="fade-up" data-aos-delay="200">
+        Bridging technology and creativity through AI.
+      </p>
+      <div class="social-links" data-aos="fade-up" data-aos-delay="300">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="mailto:hazaldoster96@gmail.com"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+    <div class="scroll-down" id="scroll-down">
+      <i class="fas fa-angle-down"></i>
+    </div>
+  </section>
+
+  <!-- Manifest Section -->
+  <section class="section manifest-section" id="manifest" style="background: rgba(42, 31, 108, 0.04);">
+    <div class="particles-container manifest-particles" id="manifest-particles"></div>
+    <div class="content">
+      <h2 class="section-title">Manifest <i class="fas fa-scroll section-icon manifest-icon"></i></h2>
+      <div class="manifest-content">
+        <h3 class="manifest-tagline typing-manifest" id="manifest-tagline"></h3>
+        
+        <p class="manifest-paragraph" data-aos="fade-up" data-aos-delay="100">
+          I build bridges between <span class="highlight-primary">human imagination</span> and <span class="highlight-tertiary">machine intelligence</span>. I believe code isn't just logic — it's a language of expression. In every algorithm, I search for aesthetics; in every system, a narrative.
+        </p>
+        
+        <p class="manifest-paragraph" data-aos="fade-up" data-aos-delay="250">
+          My path began in engineering, where I learned to think through data. But it was through <span class="highlight-primary">creative AI</span> that I found my voice — blending <span class="highlight-secondary">storytelling</span>, <span class="highlight-tertiary">design</span>, and <span class="highlight-primary">machine learning</span> into something meaningful. From shipping production-level software to crafting generative content daily with GenAI tools, I've shaped my work around the harmony of structure and creativity.
+        </p>
+        
+        <p class="manifest-paragraph" data-aos="fade-up" data-aos-delay="350">
+          Generative AI is more than a tool to me — it's a new kind of camera, a new brush, a new form of thought.
+          I find joy in researching, testing, and pushing the boundaries of models like <span class="highlight-tertiary">Diffusers</span>, <span class="highlight-tertiary">LoRAs</span>, <span class="highlight-tertiary">GANs</span>, and <span class="highlight-tertiary">Transformers</span>.
+        </p>
+        
+        <p class="manifest-paragraph" data-aos="fade-up" data-aos-delay="450">
+           Building <span class="highlight-secondary">agentic frameworks</span> that combine <span class="highlight-tertiary">LLM-based prompt generation</span> with cross-modal content pipelines — <span class="highlight-primary">text-to-video</span>, <span class="highlight-primary">image-to-video</span>, and <span class="highlight-primary">text-to-image</span>. Where it's more than automation — it's co-creation.
+         </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="content-container">
+    <!-- About Section -->
+    <section class="section" id="about" data-aos="fade-up">
+      <div class="circular-shape shape1"></div>
+      <div class="circular-shape shape2"></div>
+      <div class="content">
+        <h2 class="section-title">Little About Me <i class="fas fa-user-circle section-icon"></i></h2>
+            <p class="text">
+              My background blends full-stack engineering, creative AI research, and 4+ years of team collaboration to build together. I specialize in developing tools that merge coding with visual expressions, with hands-on experience building interfaces.
+          <br><br>
+          <b>I'm dedicated to implementing <span class="ai-highlight">generative AI systems with</span>  <span class="ai-highlight">agentic frameworks</span>, exploring their creative limits, and bridging <span class="ai-highlight">machine learning with human creativity</span>.</b>
+        </p>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section" id="education" data-aos="fade-up">
+      <div class="circular-shape shape1"></div>
+      <div class="content">
+        <h2 class="section-title">Education <i class="fas fa-graduation-cap section-icon"></i></h2>
+        <div class="content-items">
+          <div class="card" data-aos="fade-right" data-aos-delay="100">
+            <div class="card-title">MSc Data Science & AI for the Creative Industries</div>
+            <div class="experience-company">University of Arts London</div>
+            <div class="experience-date">2023 - 2024</div>
+          </div>
+          <div class="card" data-aos="fade-left" data-aos-delay="200">
+            <div class="card-title">BA Management Information Systems</div>
+            <div class="experience-company">Istanbul Bilgi University</div>
+            <div class="experience-date">2015 - 2020</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section" id="experience" data-aos="fade-up">
+      <div class="circular-shape shape2"></div>
+      <div class="content">
+        <h2 class="section-title">Experience <i class="fas fa-briefcase section-icon"></i></h2>
+        <div class="experience-timeline">
+          <div class="experience-item" data-aos="fade-up" data-aos-delay="100">
+            <div class="experience-title">Creative AI Engineer</div>
+            <div class="experience-company">Consciouslab</div>
+            <div class="experience-date">2025 - Present</div>
+            <ul>
+              <li>Implementing AI solutions within creative workflows to enhance storytelling content across platforms.</li>
+              <li>Focus on developing tools that merge RAG with design.</li>
+              <li>Engaged in R&D activities to develop and dockerize AI-driven technologies.</li>
+            </ul>
+          </div>
+          
+          <div class="experience-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="experience-title">Software Engineer</div>
+            <div class="experience-company">Vodafone Turkiye HQ</div>
+            <div class="experience-date">2021 - 2024</div>
+            <ul>
+              <li>Full-stack development of "Vodafone Her Sey Yanimda" mobile application.</li>
+                </ul>
+          </div>
+          
+          <div class="experience-item" data-aos="fade-up" data-aos-delay="300">
+            <div class="experience-title">Vodafone Discover MT</div>
+            <div class="experience-company">Vodafone Turkiye HQ</div>
+            <div class="experience-date">2020 - 2021</div>
+            <ul>
+              <li>Fixed IT Solutions Discover</li>
+              <li>Release and Environment Management Discover</li>
+                </ul>
+          </div>
+          
+          <div class="experience-item" data-aos="fade-up" data-aos-delay="400">
+            <div class="experience-title">Technical Education Intern</div>
+            <div class="experience-company">Bosch Group Turkiye HQ</div>
+            <div class="experience-date">2018 - 2020</div>
+            <ul>
+              <li>Educational press edit</li>
+                </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="section" id="expertise" data-aos="fade-up">
+      <div class="circular-shape shape1"></div>
+      <div class="circuit-pattern pattern-top-right"></div>
+      <div class="content">
+        <h2 class="section-title">Expertise <i class="fas fa-brain section-icon"></i></h2>
+        <div class="content-items">
+          <div class="card" data-aos="fade-up" data-aos-delay="100">
+            <i class="fas fa-robot expertise-icon"></i>
+            <div class="card-title">NLP for Creatives</div>
+            <p>Specialized in natural language processing applications for creative content generation and analysis.</p>
+          </div>
+          <div class="card" data-aos="fade-up" data-aos-delay="200">
+            <i class="fas fa-eye expertise-icon"></i>
+            <div class="card-title">Media implementations through Computer Vision</div>
+            <p>Developing cutting-edge visual applications using advanced computer vision techniques.</p>
+          </div>
+          <div class="card" data-aos="fade-up" data-aos-delay="300">
+            <i class="fas fa-chart-bar expertise-icon"></i>
+            <div class="card-title">Data Science for Data Visualisations</div>
+            <p>Creating meaningful and interactive visualizations from complex datasets.</p>
+          </div>
+          <div class="card" data-aos="fade-up" data-aos-delay="400">
+            <i class="fas fa-code expertise-icon"></i>
+            <div class="card-title">Full-Stack Software Development</div>
+            <p>End-to-end application development with a focus on user experience and performance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects" data-aos="fade-up">
+      <div class="circular-shape shape2"></div>
+      <div class="circuit-pattern pattern-bottom-left"></div>
+      <div class="content">
+        <h2 class="section-title">Projects <i class="fas fa-tasks section-icon"></i></h2>
+        <div class="content-items">
+          <div class="project-card" data-aos="fade-right" data-aos-delay="100">
+            <div class="project-image">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title" data-project="ArtifactGAN">ArtifactGAN</h3>
+              <div class="project-tags">
+                <span class="project-tag">GAN</span>
+                <span class="project-tag">Cultural Heritage</span>
+                <span class="project-tag">PyTorch</span>
+              </div>
+              <p class="project-description">A custom GAN model for historical artifact restoration, demonstrating how AI can serve both cultural preservation and artistic innovation.</p>
+              <a href="file/ArtefactGAN.pdf" class="custom-button-flat small" target="_blank">View Research</a>
+            </div>
+          </div>
+          
+          <div class="project-card" data-aos="fade-left" data-aos-delay="200">
+            <div class="project-image">
+              <i class="fas fa-film"></i>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title" data-project="Spiral">Spiral of Vengeance</h3>
+              <div class="project-tags">
+                <span class="project-tag">AI Video</span>
+                <span class="project-tag">Runway Gen-2</span>
+                <span class="project-tag">Creative AI</span>
+              </div>
+              <p class="project-description">An experimental AI-generated video exploring visual storytelling using Runway Gen:48 AI technology.</p>
+                <a href="spiral-of-vengeance.html" class="custom-button-flat small">Watch Video</a>
+        </div>
+      </div>
+          
+          <div class="project-card" data-aos="fade-right" data-aos-delay="300">
+            <div class="project-image">
+              <i class="fas fa-theater-masks"></i>
+    </div>
+            <div class="project-content">
+              <h3 class="project-title" data-project="PerdeApp">PerdeApp!</h3>
+              <div class="project-tags">
+                <span class="project-tag">Mobile App</span>
+                <span class="project-tag">Theatre</span>
+                <span class="project-tag">Database</span>
+  </div>
+              <p class="project-description">A theatre database application designed to connect theater enthusiasts with performances.</p>
+              <a href="https://youtu.be/FFQAP5DzGYE" class="custom-button-flat small" target="_blank">View Demo</a>
+            </div>
+          </div>
+          
+          <div class="project-card" data-aos="fade-left" data-aos-delay="400">
+            <div class="project-image">
+              <i class="fas fa-microchip"></i>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title" data-project="AICrafts">@AICraftsCo</h3>
+              <div class="project-tags">
+                <span class="project-tag">AI Research</span>
+                <span class="project-tag">Social Media</span>
+                <span class="project-tag">Content Creation</span>
+              </div>
+              <p class="project-description">Twitter account sharing daily AI content and research on creative applications of artificial intelligence.</p>
+              <a href="https://x.com/AICraftsCo/" class="custom-button-flat small" target="_blank">Visit Account</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills" data-aos="fade-up">
+      <div class="circular-shape shape1"></div>
+      <div class="content">
+        <h2 class="section-title">Computer Skills <i class="fas fa-code section-icon"></i></h2>
+        <div class="skill-container" data-aos="fade-up" data-aos-delay="100">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">Flutter</span>
+          <span class="skill-tag">PyTorch</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">TypeScript</span>
+          <span class="skill-tag">HTML5</span>
+          <span class="skill-tag">Postman</span>
+          <span class="skill-tag">Gradle</span>
+          <span class="skill-tag">SpringBoot</span>
+          <span class="skill-tag">Docker</span>
+        </div>
+        
+        <h2 class="section-title" style="margin-top: 40px;">Languages <i class="fas fa-language section-icon"></i></h2>
+        <div class="content-items" data-aos="fade-up" data-aos-delay="200">
+          <div class="card">
+            <div class="card-title">Turkish</div>
+            <p>Native</p>
+          </div>
+          <div class="card">
+            <div class="card-title">English</div>
+            <p>Fluent</p>
+          </div>
+          <div class="card">
+            <div class="card-title">Russian</div>
+            <p>Intermediate</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- JavaScript Libraries -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    // Initialize AOS (Animate On Scroll)
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out',
+      once: false
+    });
+
+    // Particles Background
+    particlesJS('particles-js', {
+      particles: {
+        number: {
+          value: 80,
+          density: {
+            enable: true,
+            value_area: 800
+          }
+        },
+        color: {
+          value: "#00F5A0" // Neon Mint
+        },
+        shape: {
+          type: "circle",
+          stroke: {
+            width: 0,
+            color: "#000000"
+          }
+        },
+        opacity: {
+          value: 0.5,
+          random: false,
+          anim: {
+            enable: false,
+            speed: 1,
+            opacity_min: 0.1,
+            sync: false
+          }
+        },
+        size: {
+          value: 3,
+          random: true,
+          anim: {
+            enable: false,
+            speed: 40,
+            size_min: 0.1,
+            sync: false
+          }
+        },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#FF6B6B", // Electric Coral
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 2,
+          direction: "none",
+          random: false,
+          straight: false,
+          out_mode: "out",
+          bounce: false,
+          attract: {
+            enable: false,
+            rotateX: 600,
+            rotateY: 1200
+          }
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: {
+            enable: true,
+            mode: "grab"
+          },
+          onclick: {
+            enable: true,
+            mode: "push"
+          },
+          resize: true
+        },
+        modes: {
+          grab: {
+            distance: 140,
+            line_linked: {
+              opacity: 1
+            }
+          },
+          bubble: {
+            distance: 400,
+            size: 40,
+            duration: 2,
+            opacity: 8,
+            speed: 3
+          },
+          repulse: {
+            distance: 200,
+            duration: 0.4
+          },
+          push: {
+            particles_nb: 4
+          },
+          remove: {
+            particles_nb: 2
+          }
+        }
+      },
+      retina_detect: true
+    });
+
+    // Navigation Scroll Effect with auto-hide
+    let lastScrollPosition = 0;
+    let scrollThreshold = 20; // Minimum scroll amount before hiding/showing nav
+    
+    window.addEventListener('scroll', function() {
+      const nav = document.querySelector('.nav-container');
+      const currentScrollPosition = window.scrollY;
+      
+      // Add or remove scrolled class for background/styling
+      if (currentScrollPosition > 100) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+      
+      // Only apply hide/show after scrolling past hero section
+      if (currentScrollPosition > window.innerHeight * 0.5) {
+        // Hide navigation when scrolling down
+        if (currentScrollPosition > lastScrollPosition + scrollThreshold) {
+          nav.classList.add('hidden');
+        } 
+        // Show navigation when scrolling up
+        else if (currentScrollPosition < lastScrollPosition - scrollThreshold) {
+          nav.classList.remove('hidden');
+        }
+      } else {
+        // Always show navigation at the top of the page
+        nav.classList.remove('hidden');
+      }
+      
+      // Save current scroll position for next comparison
+      lastScrollPosition = currentScrollPosition;
+    });
+
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Scroll Down Button
+    document.getElementById('scroll-down').addEventListener('click', function() {
+      window.scrollTo({
+        top: document.getElementById('about').offsetTop - 80,
+        behavior: 'smooth'
+      });
+    });
+
+    // Mobile Menu Toggle
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+      document.getElementById('nav-links').classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+      const navLinks = document.getElementById('nav-links');
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      
+      if (!navLinks.contains(e.target) && e.target !== mobileBtn) {
+        navLinks.classList.remove('active');
+      }
+    });
+
+    // Add the neon mint effect for buttons on hover
+    const buttons = document.querySelectorAll('.custom-button-flat');
+    buttons.forEach(button => {
+      button.addEventListener('mouseenter', function() {
+        this.style.boxShadow = `0 0 15px ${getComputedStyle(document.documentElement).getPropertyValue('--secondary-accent')}`;
+      });
+      button.addEventListener('mouseleave', function() {
+        this.style.boxShadow = 'none';
+      });
+    });
+
+    // Add subtle glow effect for skill tags
+    const skillTags = document.querySelectorAll('.skill-tag');
+    skillTags.forEach(tag => {
+      tag.addEventListener('mouseenter', function() {
+        this.style.boxShadow = `0 0 10px ${getComputedStyle(document.documentElement).getPropertyValue('--secondary-accent')}`;
+      });
+      tag.addEventListener('mouseleave', function() {
+        this.style.boxShadow = 'none';
+      });
+    });
+
+    // Generate dynamic background animation elements
+    function createBackgroundAnimation() {
+      const container = document.getElementById('bg-animation');
+      const count = 30;
+      
+      for (let i = 0; i < count; i++) {
+        const span = document.createElement('span');
+        const size = Math.random() * 5;
+        const duration = 3 + Math.random() * 10;
+        const opacity = 0.1 + Math.random() * 0.3;
+        
+        span.style.width = `${size}px`;
+        span.style.height = `${size}px`;
+        span.style.left = `${Math.random() * 100}%`;
+        span.style.top = `${Math.random() * 100}%`;
+        span.style.setProperty('--duration', `${duration}s`);
+        span.style.setProperty('--opacity', opacity);
+        span.style.animationDelay = `${Math.random() * 5}s`;
+        
+        container.appendChild(span);
+      }
+    }
+    
+    // Initialize the background animation
+    createBackgroundAnimation();
+    
+    // Setup manifest particles for a subtle, elegant background
+    function setupManifestParticles() {
+      particlesJS('manifest-particles', {
+        particles: {
+          number: {
+            value: 80, // Increased from 25 for more visible particles
+            density: {
+              enable: true,
+              value_area: 800
+            }
+          },
+          color: {
+            value: ["#FF6B6B", "#00F5A0", "#2A1F6C", "#4a3f8c"] // Added more colors
+          },
+          shape: {
+            type: "circle", // Only use circles
+            stroke: {
+              width: 1,
+              color: "#00F5A0"
+            }
+          },
+          opacity: {
+            value: 0.6, // Increased from 0.2 for more visibility
+            random: true,
+            anim: {
+              enable: true,
+              speed: 0.5,
+              opacity_min: 0.2,
+              sync: false
+            }
+          },
+          size: {
+            value: 8, // Increased from 3 for more visibility
+            random: true,
+            anim: {
+              enable: true,
+              speed: 1.5,
+              size_min: 2, // Increased minimum size
+              sync: false
+            }
+          },
+          line_linked: {
+            enable: true,
+            distance: 150, // Decreased for more connections
+            color: "#00F5A0", // Changed to neon mint for visibility
+            opacity: 0.4, // Increased from 0.1 for more visibility
+            width: 1.5 // Increased width
+          },
+          move: {
+            enable: true,
+            speed: 1.2, // Slightly faster for more noticeable movement
+            direction: "none",
+            random: true,
+            straight: false,
+            out_mode: "out",
+            bounce: false,
+            attract: {
+              enable: true,
+              rotateX: 600,
+              rotateY: 1200
+            }
+          }
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: {
+              enable: true,
+              mode: "bubble"
+            },
+            onclick: {
+              enable: true,
+              mode: "push" // Add particles on click
+            },
+            resize: true
+          },
+          modes: {
+            bubble: {
+              distance: 200,
+              size: 12, // Increase bubble size
+              duration: 2,
+              opacity: 0.8, // More opaque bubbles
+              speed: 3
+            },
+            push: {
+              particles_nb: 5 // Add more particles on click
+            }
+          }
+        },
+        retina_detect: true
+      });
+    }
+    
+    // Create typing effect for the manifest tagline
+    function typeManifestTagline() {
+      const tagline = document.getElementById('manifest-tagline');
+      // Split text into phrases to display each on new line
+      const text = "Creative Technologist. Generative Thinker. Storyteller of the New Medium.";
+      const phrases = text.split('.');
+      const typingDelay = 100;
+      let phraseIndex = 0;
+      let charIndex = 0;
+      
+      // Clear any previous content
+      tagline.innerHTML = '';
+      
+      // Create container spans for each phrase
+      for (let i = 0; i < phrases.length; i++) {
+        if (phrases[i].trim() !== '') {
+          const span = document.createElement('span');
+          span.className = 'tagline-phrase';
+          tagline.appendChild(span);
+        }
+      }
+      
+      const phraseSpans = tagline.querySelectorAll('.tagline-phrase');
+      
+      function typeCharacter() {
+        if (phraseIndex < phrases.length) {
+          // Skip empty phrases
+          if (phrases[phraseIndex].trim() === '') {
+            phraseIndex++;
+            return typeCharacter();
+          }
+          
+          if (charIndex < phrases[phraseIndex].length) {
+            const currentChar = phrases[phraseIndex].charAt(charIndex);
+          // Add glow to periods for emphasis
+            if (currentChar === '.') {
+              phraseSpans[phraseIndex].innerHTML += `<span class="glow-text">.</span>`;
+              charIndex++;
+              
+              // Move to next phrase after typing a period
+              setTimeout(() => {
+                phraseIndex++;
+                charIndex = 0;
+                typeCharacter();
+              }, typingDelay * 3); // Longer pause after completing a phrase
+          } else {
+              phraseSpans[phraseIndex].innerHTML += currentChar;
+          charIndex++;
+          setTimeout(typeCharacter, typingDelay);
+            }
+        } else {
+            // Add the period at the end if missing in the original text
+            if (!phrases[phraseIndex].endsWith('.')) {
+              phraseSpans[phraseIndex].innerHTML += `<span class="glow-text">.</span>`;
+            }
+            
+            // Move to next phrase
+            phraseIndex++;
+            charIndex = 0;
+            setTimeout(typeCharacter, typingDelay * 3);
+          }
+        } else {
+          // Animation complete - no shimmer effect added
+          tagline.classList.add('typing-complete');
+        }
+      }
+      
+      // Start typing animation when section is visible
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setTimeout(typeCharacter, 500); // Start after a small delay
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      
+      observer.observe(tagline);
+    }
+    
+    // Add interactive effects for the manifest text
+    function setupManifestInteraction() {
+      // Start typing effect for tagline
+      typeManifestTagline();
+      
+      // Add floating animation to manifest conclusion
+      const conclusion = document.querySelector('.manifest-conclusion');
+      if (conclusion) {
+        conclusion.style.animation = 'float 4s ease-in-out infinite';
+      }
+    }
+    
+    // Simple floating animation
+    const styleSheet = document.styleSheets[0];
+    styleSheet.insertRule(`
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+      }
+    `, styleSheet.cssRules.length);
+    
+    // Initialize manifest section
+    window.addEventListener('load', function() {
+      setupManifestParticles();
+      setupManifestInteraction();
+    });
+
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const toggleIcon = themeToggle.querySelector('i');
+    const body = document.body;
+    
+    // Function to update particles based on current theme
+    function updateParticles() {
+      const isDarkMode = body.classList.contains('dark-mode');
+      
+      // Clear existing particles
+      if (window.pJSDom && window.pJSDom.length > 0) {
+        window.pJSDom[0].pJS.fn.vendors.destroypJS();
+        window['pJSDom'] = [];
+      }
+      
+      // Recreate particles with new configuration
+      particlesJS('particles-js', {
+        particles: {
+          number: {
+            value: isDarkMode ? 120 : 80,
+            density: {
+              enable: true,
+              value_area: 800
+            }
+          },
+          color: {
+            value: "#00F5A0" // Neon Mint
+          },
+          shape: {
+            type: "circle",
+            stroke: {
+              width: 0,
+              color: "#000000"
+            }
+          },
+          opacity: {
+            value: isDarkMode ? 0.8 : 0.5,
+            random: false,
+            anim: {
+              enable: false,
+              speed: 1,
+              opacity_min: 0.1,
+              sync: false
+            }
+          },
+          size: {
+            value: isDarkMode ? 12 : 3, // MUCH larger particles in dark mode
+            random: true,
+            anim: {
+              enable: false,
+              speed: 40,
+              size_min: isDarkMode ? 5 : 0.1,
+              sync: false
+            }
+          },
+          line_linked: {
+            enable: true,
+            distance: isDarkMode ? 200 : 150,
+            color: "#FF6B6B", // Electric Coral
+            opacity: 0.4,
+            width: isDarkMode ? 2 : 1
+          },
+          move: {
+            enable: true,
+            speed: isDarkMode ? 3 : 2,
+            direction: "none",
+            random: false,
+            straight: false,
+            out_mode: "out",
+            bounce: false,
+            attract: {
+              enable: false,
+              rotateX: 600,
+              rotateY: 1200
+            }
+          }
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: {
+              enable: true,
+              mode: "grab"
+            },
+            onclick: {
+              enable: true,
+              mode: "push"
+            },
+            resize: true
+          },
+          modes: {
+            grab: {
+              distance: 140,
+              line_linked: {
+                opacity: 1
+              }
+            },
+            bubble: {
+              distance: 400,
+              size: isDarkMode ? 40 : 20,
+              duration: 2,
+              opacity: 8,
+              speed: 3
+            },
+            repulse: {
+              distance: 200,
+              duration: 0.4
+            },
+            push: {
+              particles_nb: 4
+            },
+            remove: {
+              particles_nb: 2
+            }
+          }
+        },
+        retina_detect: true
+      });
+    }
+
+    // Initialize particles properly on page load
+    window.addEventListener('load', function() {
+      // Check for saved theme preference
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        toggleIcon.classList.remove('fa-moon');
+        toggleIcon.classList.add('fa-sun');
+      }
+      
+      // Initialize particles based on current theme
+      setTimeout(updateParticles, 100);
+    });
+    
+    // Toggle theme on click
+    themeToggle.addEventListener('click', function() {
+      if (body.classList.contains('dark-mode')) {
+        // Switch to light mode
+        body.classList.remove('dark-mode');
+        toggleIcon.classList.remove('fa-sun');
+        toggleIcon.classList.add('fa-moon');
+        localStorage.setItem('theme', 'light');
+      } else {
+        // Switch to dark mode
+        body.classList.add('dark-mode');
+        toggleIcon.classList.remove('fa-moon');
+        toggleIcon.classList.add('fa-sun');
+        localStorage.setItem('theme', 'dark');
+      }
+      
+      // Update particles for theme
+      updateParticles();
+    });
+  </script>
+</body>
+
+</html>
